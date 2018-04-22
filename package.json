@@ -1,0 +1,19 @@
+{
+  "name": "chat_on_ajax_techology",
+  "version": "1.0.0",
+  "description": "just_chat",
+  "main": "server.js",
+  "scripts": {
+    "test": "chat",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ajax_chat"
+  },
+  "keywords": [
+    "chat"
+  ],
+  "author": "Imran",
+  "license": "ISC"
+}

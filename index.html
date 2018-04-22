@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body style="background-color: black;">
+    <div style="margin: 0 auto; text-align: center;">
+
+        <h1 style="color:red; font-weight: bold">Chat on AJAX</h1>
+        <input name="message" id="message" placeholder="Enter your message" style="border-radius: 5px; background-color: silver;">
+        <button id="button" style="border-radius: 5px; background-color: silver;">Submit</button>
+        <button id="button2" style="border-radius: 5px; background-color: silver;">Reset</button>
+        <ul id="ul" style="color: red; font-family: Arial, Helvetica, sans-serif; list-style-type: none; text-align: end; padding-right: 100px"></ul>
+    </div>
+    <script>
+        'use strict';
+        
+        var p = document.getElementById('p');
+        var button = document.getElementById('button');
+        var button2 = document.getElementById('button2');
+        var message = document.getElementById('message');
+        var n = document.getElementById('name');
+        var ul = document.getElementById('ul');
+        button2.addEventListener('click', reset);
+        function reset() {
+            ul.innerHTML = '';
+        };
+        button.addEventListener('click', send);
+        var prevmessage = '';
+        function send() {
+            var params = 'message=' + encodeURIComponent(message.value);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if(this.readyState == 4 && this.status == 200){
+                     
+                };
+            };
+            xhttp.open('GET', '/array?' + params, true);
+            xhttp.send();
+        };
+        
+        setInterval(req, 1000);
+        function req() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+                if(this.responseText != prevmessage){
+                    prevmessage = this.responseText;
+                    var li = document.createElement('li');
+                    li.innerHTML = prevmessage;
+                    ul.appendChild(li);
+                };
+            };
+            xhttp.open('GET', '/array/api', true);
+            xhttp.send();
+        };
+        
+    </script>
+</body>
+</html>
